@@ -1,0 +1,70 @@
+MyModel(
+  (retBlock): BasicBlock(
+    (body): Sequential(
+      (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (1): ReLU(inplace=True)
+    )
+  )
+  (cblock): Sequential(
+    (0): Cascade_Block(
+      (b): Block(
+        (b1): EResidualBlock(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (1): ReLU(inplace=True)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (3): ReLU(inplace=True)
+            (4): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (b1_2): EResidualBlock(
+          (body): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (1): ReLU(inplace=True)
+            (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (3): ReLU(inplace=True)
+            (4): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (b1_3): EResidualBlock(
+          (body): Sequential(
+            (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (1): ReLU(inplace=True)
+            (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2)
+            (3): ReLU(inplace=True)
+            (4): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (c1): BasicBlock(
+          (body): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+            (1): ReLU(inplace=True)
+          )
+        )
+        (c2): BasicBlock(
+          (body): Sequential(
+            (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+            (1): ReLU(inplace=True)
+          )
+        )
+        (c3): BasicBlock(
+          (body): Sequential(
+            (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+            (1): ReLU(inplace=True)
+          )
+        )
+        (c4): BasicBlock(
+          (body): Sequential(
+            (0): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1))
+            (1): ReLU(inplace=True)
+          )
+        )
+      )
+      (relu): ReLU()
+    )
+  )
+  (input): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (output): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (relu): ReLU()
+)
+Network structure: [DataParallel - MyModel], with parameters: [1,251,008]
