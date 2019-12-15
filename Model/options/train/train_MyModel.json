@@ -1,0 +1,56 @@
+{
+    "mode": "sr",
+    "use_cl": true,
+    "gpu_ids": [0],
+
+    "scale": 4,
+    "is_train": true,
+    "use_chop": true,
+    "rgb_range": 255,
+    "self_ensemble": false,
+    "save_image": true,
+
+    "datasets": {
+        "train": {
+            "mode": "HQ",
+            "dataroot_HR": "../dataset2/cropped_result/",
+            "dataroot_LR": "../dataset2/pixelated/",
+            "n_workers": 4,
+            "batch_size": 32
+        },
+        "val": {
+            "mode": "HQ",
+            "dataroot_HR": "../val_set/cropped_result",
+            "dataroot_LR": "../val_set/pixelate_result",
+            "data_type": "img"
+        }
+    },
+
+    "networks": {
+        "which_model": "MyModel",
+        "num_features": 64,
+        "in_channels": 3,
+        "out_channels": 3,
+        "num_steps": 4,
+        "num_groups": 6
+    },
+
+    "solver": {
+        "type": "ADAM",
+        "learning_rate": 0.0001,
+        "weight_decay": 0,
+        "lr_scheme": "MultiStepLR",
+        "lr_steps": [200, 400, 600, 800],
+        "lr_gamma": 0.5,
+        "loss_type": "l1",
+        "manual_seed": 0,
+        "num_epochs": 1,
+        "skip_threshold": 3,
+        "split_batch": 2,
+        "save_ckp_step": 1,
+        "save_vis_step": 1,
+        "pretrain": null,
+        "pretrained_path": "./experiments/MYMODEL_lr4_b32_l2/epochs/last_ckp.pth",
+        "cl_weights": [1.0, 1.0, 1.0, 1.0]
+    }
+}
