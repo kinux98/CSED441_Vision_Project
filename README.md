@@ -19,11 +19,7 @@ Our goal is to implement de-pixelate model.
 
 ---
 
-Elimination of pixelated part of image and restore.
-
-
-### You can download sample Datasets through below link
-https://drive.google.com/drive/folders/1C2OTEWdoD5njASnhLLLpatR6yZPDGCl4?usp=sharing
+Elimination of pixelated part of image and restore it.
 
 
 
